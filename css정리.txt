@@ -1,0 +1,228 @@
+-css란
+html이 정보를 보여주는 역할이라면 css는 그 정보에 디자인을 입혀주는 역할을 한다.
+
+-html - css 연동하기
+
+-선택자와 선언
+어떤 태그를 디자인하기 위해서는 디자인하려는 태그를 
+
+	1. 선택하고 (선택자)
+	2. 선택한 대상에게 효과를 줘야 합니다. (선언)
+
+ex)
+li{
+color:red;
+text-decoration:underline;
+}
+
+-id 선택자와 class 선택자
+id : 코드상에서 1개 밖에 존재하지 못하는 유일한 것 ( #id_name 이렇게 선택한다)
+class : 여러 개의 태그에 적용할 수 있고 id와 다르게 여러개를 적용할 수 있다. (.class_name 이렇게 선택한다.)
+
+-부모자식 선택자
+자식, 자손 선택자 (띄어쓰기를 활용한다.)
+ul li{
+color:red;
+}
+
+자식선택자 (>) (A > B A바로 밑에 있는 B만 선택)
+#lecture >li{
+border:1px solid red;
+}
+
+다중선택자 (,) (여러개의 태그를 선택할경우)
+ul,ol{
+background-color: powderblue;
+}
+
+전체선택자 (*) (모든 태그를 선택)
+
+A + B : A다음에 오는 모든 B를 선택합니다
+
+A ~ B : A다음에 오는 모든 B를 선택, (A+B)와 같은 의미
+
+nth-child(n) : n번째 수만 선택하는 것 
+P:nth-child(4n) --&gt; 4, 8, 12 번째 p 만 선택
+
+**http://flukeout.github.io/ 게임형식으로 선택자에 대한 개념이해를 도와주는 사이트
+
+-상속
+만약 html코드상의 li코드에서 서체의 색상을 지정해야 한다면 어떻게 하면 될까요? 모든 엘리먼트의 색상을 하나 하나 지정해야 할까요? 그것 보다 효율적인 방법이 있습니다. 바로 상속을 이용하는 것입니다. 
+html의 서체 색상만 조정하면 하위에 있는 모든 엘리먼트의 색상이 자동으로 바뀌게 됩니다. 이것은 각 엘리먼트가 상위 엘리먼트의 서체 색상 값을 물려 받기 때문입니다
+
+
+https://www.w3.org/TR/CSS21/propidx.html 상속여부를 알수 있는 사이트
+
+-Cascading
+캐스케이드는 폭포라는 의미가 있습니다. 처음 html이 등장했을 때는 CSS가 없었습니다. 웹의 사용자들은 곧 디자인을 요구하기 시작합니다. 웹의 고안자들은 html을 꾸며주는 언어의 필요성에 공감하기 시작합니다. 그렇게해서 등장한 것이 CSS입니다.
+CSS는 Cascading Style Sheet의 약자입니다. Cascading은 CSS의 첫번째 글자로 등장할만큼 가장 중요한 기능 다시 말해 철학이라는 의미가 있습니다. Cascading을 사전에서 찾아보면 폭포라는 의미가 있습니다. 즉 웹페이지의 디자인이 웹브라우저의 기본 디자인과 브라우저 사용자의 디자인 그리고 웹페이지 저자의 디자인이 결합될 수 있다는 점에 착안하고 있다고 할 수 있을 것 같습니다.
+즉 웹브라우저, 사용자, 컨텐츠 생산자의 조화를 중요한 철학으로 삼고 있다고 생각됩니다. 여기서는 하나의 엘리먼트에 대해서 다양한 효과가 영향력을 행사하려고 할 때 우선순위를 어떻게 설정하는가에 대한 규칙인 캐스캐이딩에 대해서 알아봅니다.
+우선순위의 순서 : 웹브라우저 &lt; 사용자 &lt; 저자
+CSS우선순위 순선 : 태그선택자 &lt; class선택자 &lt; id선택자 &lt; style속성
+CSS우선순위의 기준 : 가장 포괄적인 규칙, 일반적인것 &lt; 구체적이면서 명시적인 규칙
+"!important"라는 키워드를 넣으면 모든 것을 무시하고 우선순위가 가장 높아진다.
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;title&gt;Document&lt;/title&gt;
+&lt;style&gt;
+li{color: red;}
+#idsel{color: blue !important;}
+.classsel{color: green;}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;ul&gt;
+&lt;li&gt;HTML&lt;/li&gt;
+&lt;li id="idsel" class="classsel" style="color: powderblue"&gt;CSS&lt;/li&gt;
+&lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;Style Attribute&lt;/li&gt;
+&lt;li&gt;ID Selector&lt;/li&gt;
+&lt;li&gt;Class Selector&lt;/li&gt;
+&lt;li&gt;Tag Selector&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+-inline-block
+block level : 자기 혼자서 화면 전체를 차지하는 태그
+inline level : 화면의 일부를 차지하는 태그
+-&gt; display 속성을 이용하면 블록 레벨 엘리먼트를 인라인 엘리먼트로, 인라인 레벨 엘리먼트를 블록 레벨 엘리먼트로 바꿀 수 있다!
+
+-박스모델
+
+-float
+Float는 편집 디자인에서 이미지를 삽화로 삽입할 때 사용하는 기법입니다. 또한 레이아웃을 잡을 때도 사용하는 기능이기 때문에 꽤 중요합니다. 
+이미지와 문서가 있을때 이미지와 문서의 위치를 조정할수 있습니다.
+
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+img{
+width:300px;
+float:left;
+margin:20px;
+}
+p{
+border:1px solid gray;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;img src="sample.mt.jpg" alt=""&gt;
+&lt;p&gt;
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate minus, obcaecati quia eaque perspiciatis! Vero cum libero architecto. Odit, et. Totam expedita
+&lt;/p&gt;
+&lt;p style="clear:both;"&gt;
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate minus, obcaecati quia eaque perspiciatis! Vero cum libero architecto. Odit, et. Totam expedita Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate minus, obcaecati quia eaque perspiciatis! Vero cum libero architecto. Odit, et. Totam expedita Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate minus, obcaecati quia eaque perspiciatis! Vero cum libero architecto. Odit, et. Totam expedita
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+-position
+
+	* 엘리먼트의 위치를 지정하는 4가지 방법이 있습니다. 
+	* static
+	* relative
+	* absolute
+	* fixed
+
+
+*static vs relative
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+html{border:1px solid gray;}
+div{
+border:5px solid tomato;
+margin:10px;
+}
+#me{
+position: relative;
+left:100px;
+top:100px;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="other"&gt;other&lt;/div&gt;
+&lt;div id="parent"&gt;
+parent
+&lt;div id="me"&gt;me&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+*absolute
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+#parent, #other, #grand{
+border:5px solid tomato;
+}
+#grand{
+position: relative;
+}
+#me{
+background-color: black;
+color:white;
+position: absolute;
+left:0;
+top:0;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="other"&gt;other&lt;/div&gt;
+&lt;div id="grand"&gt;
+grand
+&lt;div id="parent"&gt;
+parent
+&lt;div id="me"&gt;me&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+*fixed
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+body{
+padding-top:30px;
+}
+#parent, #other{
+border:5px solid tomato;
+}
+#large{
+height:10000px;
+background-color: tomato;
+}
+#me{
+background-color: black;
+color:white;
+position: fixed;
+left:0;
+top:0;
+text-align: center;
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="other"&gt;other&lt;/div&gt;
+&lt;div id="parent"&gt;
+parent
+&lt;div id="me"&gt;me&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="large"&gt;large&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;

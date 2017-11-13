@@ -1,0 +1,96 @@
+
+html
+HTML은 화면의 레이아웃(뼈대) 를 구성합니다.
+웹문서를 구성하는 기본 뼈대이다
+hyper text markup language의 약자이다.
+확장자는 .html로 끝난다.
+기본적인 문법은 태그를 열고 닫는형식으로 구성된다. &lt;p&gt; &lt;/p&gt;
+DOCTYPE은 웹표준의 필수 사항이면서 이 문서가 html문서이며 어떤 버젼을 사용했는지 알려주는 지표이다. 기본적으로 html 5에서는 &lt;!DOCTYPE HTML&gt;이라고 선언한다.
+meta는 data에 대한 정보를 나타내는 태그이다. 그 html태그의 데이터정보를 나타낸다는 것으로 DOCTYPE과는 차이가 있다.
+기본적으로 html은 &lt;head&gt; , &lt;body&gt;로 나누는데 head에는 부가적인 정보를 주고 body에는 주내용을 적어준다. 가독성을 위한 것이기 때문에 꼭 어디에 써야된다는 것은 없다.
+semantic tag : html 코드의 정보를 좀 더 잘 표현하기 위해 구역을 나누는 태그로 구조의 의미를 부여한다.
+
+article
+본문
+aside
+광고와 같이 페이지의 내용과는 관계가 적은 내용들
+details
+기본적으로 표시되지 화면에 표시되지 않는 정보들을 정의
+figure
+삽화나 다이어그램과 같은 부가적인 요소를 정의
+footer
+화면의 하단에 위치하는 사이트나 문서의 전체적인 정보를 정의
+header
+화면의 상단에 위치하는 사이트나 문서의 전체적인 정보를 정의
+main
+문서에서 가장 중심이 되는 컨텐츠를 정의
+mark
+참조나 하이라이트 표시를 필요로 하는 문자를 정의
+nav
+문서의 네비게이션 항목을 정의
+section
+문서의 구획들을 정의 (참고)
+time
+시간을 정의
+
+
+주요태그
+-&lt;p&gt; paragraph의 줄임말로 단락을 표현할때 사용합니다. 끝에 &lt;/p&gt;로 닫아 주어야 합니다.
+-&lt;br&gt; 줄바꿈 태그로써 새로운 행에서 부터 입력이 시작되도록 합니다. 
+-&lt;img&gt; &lt;img src="img.jpg" height="300" alt="산 이미지" title="산 이미지"&gt; 보통 이렇게 쓰면서 alt는 img에 문제가 생겼을때 대신 보여주는 텍스트이며 height, weight는 크기를 지정해주는 것이다. 또한 title은 사진의 이름을 설정해주며 사진에 마우스를 올렸을때 보여지는 text이다. src는 img 파일을 불러오는 경로를 지정해준다. 절대경로, 상대경로 모두 지정이 가능하다.
+-&lt;table&gt; 테이블을 지정해주는 태그이다. 이 태그안에 &lt;tr&gt;&lt;/tr&gt;로 행을 지정해주고 tr 태그 안에 &lt;th&gt;는 index의 이름 &lt;td&gt;는 인덱스의 내용을 표시해준다. 원하는 만큼의 표를 만들 수 있고 colspan ="?", rowspan="?"로 셀을 합치는 것도 가능하다.
+-&lt;a&gt; 하이퍼링크로 홈페이지의 링크를 표시할수 있다. &lt;a href="/product"&gt;Product&lt;/a&gt; 이렇게 표시하고 href ="?"에 링크를 넣으면 된다.
+
+-&lt;h1&gt;~&lt;h6&gt; : 제목을 다는 태그로써 h1부터 h6까지 있다. 숫자가 작을 수록 큰 제목이다.
+- &lt;li&gt;, &lt;ol&gt;, &lt;ul&gt; : list를 만드는 태그로써 ol은 ordered list로 순서를 주는 것이고 ul은 unordered list로 순서와는 상관없이 list를 만든다. li는 리스트의 한개의 항목을 만든다.
+
+&lt;ol&gt;
+&lt;li value="5"&gt;웹표준&lt;/li&gt;
+&lt;li&gt;텍스트큐브 스킨&lt;/li&gt;
+&lt;li&gt;디자인&lt;/li&gt;&lt;/ol&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;웹표준&lt;/li&gt;
+&lt;li&gt;텍스트큐브 스킨&lt;/li&gt;
+&lt;li&gt;디자인&lt;/li&gt;&lt;/ul&gt;
+
+입력방식
+-텍스트입력 : &lt;input type="text" name="id" value="default value"&gt; 한줄입력을 받는 태그로써 PHP와 연관되면서 사용된다. 텍스트를 입력받는다.
+            &lt;textarea cols="50" rows="2"&gt;default value&lt;/textarea&gt; 위에것과는 다르게 몇줄을 입력받을지 크기를 지정해줄 수 있다.
+
+-선택 : 여러가지 보기중에 선택을 할 수 있게 하는 태그로써 dropdown list, radio, checkbox로 종류가 있다.
+&lt;select name="color"&gt;
+&lt;option value="red"&gt;붉은색&lt;/option&gt;
+&lt;option value="black"&gt;검은색&lt;/option&gt;
+&lt;option value="blue"&gt;파란색&lt;/option&gt;
+&lt;/select&gt;
+
+붉은색 : &lt;input type="radio" name="color" value="red"&gt;
+검은색 : &lt;input type="radio" name="color" value="black" checked&gt;
+파란색 : &lt;input type="radio" name="color" value="blue"&gt;
+
+붉은색 : &lt;input type="checkbox" name="size" value="95"&gt;
+검은색 : &lt;input type="checkbox" name="size" value="100" checked&gt;
+파란색 : &lt;input type="checkbox" name="size" value="105" checked&gt;
+ 
+-버튼 : 버튼을 만드는 것으로 기능을 지정해주지 않는다면 아무것도 작동하지 않는 버튼이다.
+&lt;input type="text"&gt;
+&lt;input type="submit" value="전송"&gt;
+&lt;input type="button" value="버튼" onclick="alert('hello world')"&gt;
+&lt;input type="reset"&gt;
+
+-메소드 form 태그 뒤에 주는 옵션으로써 form 태그안에 있는 것을 메소드로 지정하고 가져와 쓸 수 있다.
+&lt;form action="http://localhost/method.php" method="post"&gt;
+&lt;input type="text" name="id"&gt;
+&lt;input type="password" name="pwd"&gt;
+&lt;input type="submit"&gt;
+&lt;/form&gt;
+
+-파일 업로드 : 원하는 파일을 업로드해서 올릴 수 있게 만드는 태그이다.
+&lt;form action="http://localhost/upload.php" method="post" enctype="multipart/form-data"&gt;
+&lt;input type="file" name="profile"&gt;
+&lt;input type="submit"&gt;
+
+
+참조 : https://opentutorials.org/course/1058
